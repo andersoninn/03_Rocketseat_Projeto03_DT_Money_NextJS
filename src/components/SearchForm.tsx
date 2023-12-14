@@ -5,8 +5,8 @@ export function SearchForm() {
    return (
       <div className="container m-auto px-40 mt-6 flex gap-3">
          <input
-            className="flex-1 rounded-md text-theme-gray5-placeholder bg-theme-gray1-background 
-            p-4 border border-theme-gray1-background hover:border-theme-green-dark transition ease-in duration-200"
+            className="flex-1 rounded-md text-theme-gray6-base-text bg-theme-gray1-background 
+            p-4 border border-theme-gray1-background hover:border-theme-green-dark transition ease-in duration-200 placeholder:text-theme-gray5-placeholder"
             type="text"
             placeholder="Busque uma Transação"
          />
