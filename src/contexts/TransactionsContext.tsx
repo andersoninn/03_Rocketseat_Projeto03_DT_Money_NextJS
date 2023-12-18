@@ -3,7 +3,7 @@ import {
    Transactions,
    TransactionsContextType,
    TransactionsProviderProps,
-} from '@/types/types';
+} from '@/@types/types';
 import { createContext, useEffect, useState } from 'react';
 
 export const TransactionsContext = createContext({} as TransactionsContextType);
