@@ -13,14 +13,14 @@
             "description": "Hamburguer",
             "type": "outcome",
             "category": "Alimentação",
-            "price": 50,
+            "price": 40,
             "createdAt": "2023-12-15T14:30:01.188Z"
         },{
             "id": 3,
-            "description": "Hamburguer",
+            "description": "Hospedagem",
             "type": "outcome",
-            "category": "Alimentação",
-            "price": 14000,
+            "category": "contratação",
+            "price": 100,
             "createdAt": "2023-12-15T14:30:01.188Z"
         }
     ]
