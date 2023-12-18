@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export interface Transactions{
     id: number;
     description: string;
@@ -6,4 +8,12 @@ export interface Transactions{
     category: string;
     createdAt: string;
 
+}
+
+export interface TransactionsContextType {
+    transactions: Transactions[]
+}
+
+export interface TransactionsProviderProps {
+    children: ReactNode;
 }

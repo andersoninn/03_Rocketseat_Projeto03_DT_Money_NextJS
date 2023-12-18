@@ -1,19 +1,10 @@
 'use client';
-import { Transactions } from '@/types/types';
-import { useEffect, useState } from 'react';
+
+import { TransactionsContext } from '@/contexts/TransactionsContext';
+import { useContext } from 'react';
 
 export function Table() {
-   const [transactions, setTransactions] = useState<Transactions[]>([]);
-
-   async function loadTransactions() {
-      const response = await fetch('http://localhost:3333/transactions');
-      const data = await response.json();
-
-      setTransactions(data);
-   }
-   useEffect(() => {
-      loadTransactions();
-   }, []);
+   const { transactions } = useContext(TransactionsContext);
 
    return (
       <div className="container m-auto px-6 md:px-40 mt-6">

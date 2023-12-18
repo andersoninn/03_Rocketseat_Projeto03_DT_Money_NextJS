@@ -1,8 +1,12 @@
 'use client';
 
+import { TransactionsContext } from '@/contexts/TransactionsContext';
 import { ArrowCircleDown, ArrowCircleUp, CurrencyDollar } from 'phosphor-react';
+import { useContext } from 'react';
 
 export function Summary() {
+const {transactions} = useContext(TransactionsContext)
+
    return (
       <section className="w-[280px] md:w-auto md:container m-auto flex lg:grid lg:grid-cols-3 px-40 gap-8 -mt-20 overflow-x-auto">
          <div className="bg-theme-gray4-shape-tertiary rounded-md p-8 min-w-[280px]">
