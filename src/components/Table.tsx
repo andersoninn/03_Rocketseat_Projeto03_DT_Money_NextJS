@@ -1,6 +1,7 @@
 'use client';
 
 import { TransactionsContext } from '@/contexts/TransactionsContext';
+import { dataFormatter, priceFormatter } from '@/utils/formatter';
 import { useContext } from 'react';
 
 export function Table() {
@@ -19,17 +20,17 @@ export function Table() {
                   </div>
                   {transaction.type === 'income' ? (
                      <div className="text-theme-green-light py-5 px-8">
-                        {transaction.price}
+                        {priceFormatter.format(transaction.price)}
                      </div>
                   ) : (
                      <div className="text-theme-red py-5 px-8">
-                        - {transaction.price}
+                        - {priceFormatter.format(transaction.price)}
                      </div>
                   )}
 
                   <div className="py-5 px-8">{transaction.type}</div>
                   <div className="py-5 px-8 text-right">
-                     {transaction.createdAt}
+                     {dataFormatter.format(new Date(transaction.createdAt))}
                   </div>
                </div>
             );

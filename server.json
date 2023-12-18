@@ -19,8 +19,15 @@
             "id": 3,
             "description": "Hospedagem",
             "type": "outcome",
-            "category": "contratação",
+            "category": "Contratação",
             "price": 100,
+            "createdAt": "2023-12-15T14:30:01.188Z"
+        },{
+            "id": 4,
+            "description": "Transporte",
+            "type": "outcome",
+            "category": "Locomoção",
+            "price": 200,
             "createdAt": "2023-12-15T14:30:01.188Z"
         }
     ]
