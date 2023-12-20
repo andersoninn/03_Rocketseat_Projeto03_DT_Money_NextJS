@@ -28,7 +28,7 @@ export function Table() {
                      </div>
                   )}
 
-                  <div className="py-5 px-8">{transaction.type}</div>
+                  <div className="py-5 px-8">{transaction.description}</div>
                   <div className="py-5 px-8 text-right">
                      {dataFormatter.format(new Date(transaction.createdAt))}
                   </div>

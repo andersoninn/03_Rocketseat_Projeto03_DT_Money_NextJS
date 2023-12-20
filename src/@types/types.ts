@@ -11,7 +11,8 @@ export interface Transactions{
 }
 
 export interface TransactionsContextType {
-    transactions: Transactions[]
+    transactions: Transactions[];
+    fetchTransactions: (query?: string) => Promise<void>;
 }
 
 export interface TransactionsProviderProps {
