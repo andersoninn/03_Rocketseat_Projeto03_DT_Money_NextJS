@@ -1,22 +1,63 @@
 'use client';
-import { MagnifyingGlass } from 'phosphor-react';
+import { CircleNotch, MagnifyingGlass } from 'phosphor-react';
+import { useForm } from 'react-hook-form';
+
+import * as z from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
+
+const searchFormSchema = z.object({
+   query: z.string(),
+});
+
+type SearchFormInputs = z.infer<typeof searchFormSchema>;
 
 export function SearchForm() {
+   const {
+      register,
+      handleSubmit,
+      formState: { isSubmitting },
+   } = useForm<SearchFormInputs>({
+      resolver: zodResolver(searchFormSchema),
+   });
+
+   async function handleSearchTransactions(data: SearchFormInputs) {
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+      console.log(data);
+   }
    return (
-      <div className="container m-auto px-40 mt-6 flex gap-3">
+      <form
+         className="container m-auto px-40 mt-6 flex gap-3"
+         onSubmit={handleSubmit(handleSearchTransactions)}
+      >
          <input
             className="flex-1 rounded-md text-theme-gray6-base-text bg-theme-gray1-background 
             p-4 border border-theme-gray1-background hover:border-theme-green-dark transition ease-in duration-200 placeholder:text-theme-gray5-placeholder"
             type="text"
             placeholder="Busque uma Transação"
+            {...register('query')}
          />
-         <button
-            className="flex items-center gap-3 p-4 bg-transparent border border-theme-green rounded-md font-bold  text-theme-green hover:bg-theme-green-dark hover:border-theme-green-dark hover:text-white 
-         transition ease-in duration-200"
-         >
-            <MagnifyingGlass size={20} className=" " />
-            <span className=" ">Buscar</span>
-         </button>
-      </div>
+         {isSubmitting ? (
+            <button
+               className="w-[131px] flex items-center gap-3 p-4 bg-transparent border border-theme-red rounded-md font-bold
+                  transition ease-in duration-200  text-theme-white cursor-not-allowed"
+               disabled={!isSubmitting}
+            >
+               <CircleNotch
+                  size={20}
+                  className="animate-[spin_2s_linear_infinite]"
+               />
+               <span>Aguarde</span>
+            </button>
+         ) : (
+            <button
+               className="w-[131px] flex items-center gap-3 p-4 bg-transparent border border-theme-green rounded-md font-bold  text-theme-green hover:bg-theme-green-dark hover:border-theme-green-dark hover:text-white 
+               transition ease-in duration-200  "
+               disabled={isSubmitting}
+            >
+               <MagnifyingGlass size={20} />
+               <span>Buscar</span>
+            </button>
+         )}
+      </form>
    );
 }
