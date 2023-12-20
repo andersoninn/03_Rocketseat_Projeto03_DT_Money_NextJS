@@ -3,7 +3,7 @@ import * as Dialog from '@radix-ui/react-dialog';
 import * as RadioGroup from '@radix-ui/react-radio-group';
 
 import * as z from 'zod';
-import { useForm } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 
 import { ArrowCircleDown, ArrowCircleUp, CircleNotch, X } from 'phosphor-react';
@@ -19,11 +19,15 @@ type NewTransactionFormInputs = z.infer<typeof newTransactionModalSchema>;
 
 export function NewTransactionModal() {
    const {
+      control,
       register,
       handleSubmit,
       formState: { isSubmitting },
    } = useForm<NewTransactionFormInputs>({
       resolver: zodResolver(newTransactionModalSchema),
+      defaultValues: {
+         type: 'income'
+      }
    });
 
    async function handleCreateNewTransaction(data: NewTransactionFormInputs) {
@@ -76,41 +80,53 @@ export function NewTransactionModal() {
                      required
                      {...register('category')}
                   />
-
-                  <RadioGroup.Root className="flex gap-4 justify-between">
-                     <RadioGroup.Item
-                        value="income"
-                        className="w-52 h-14 flex gap-2 items-center justify-center bg-theme-gray3-shape-secondary 
+                  <Controller
+                     control={control}
+                     name="type"
+                     render={({ field }) => {
+                        // console.log(field);
+                        return (
+                           <RadioGroup.Root
+                              className="flex gap-4 justify-between"
+                              onValueChange={field.onChange}
+                              value={field.value}
+                           >
+                              <RadioGroup.Item
+                                 value="income"
+                                 className="w-52 h-14 flex gap-2 items-center justify-center bg-theme-gray3-shape-secondary 
                         border border-theme-gray3-shape-secondary rounded-md text-theme-green-dark
                         focus:text-theme-gray6-base-text  focus:bg-theme-green-dark
                         data-[state=checked]:bg-theme-green-dark data-[state=checked]:text-theme-gray6-base-text
                         hover:bg-theme-gray4-shape-tertiary transition ease-in duration-200git "
-                     >
-                        <ArrowCircleUp
-                           size={24}
-                           className=" hover:text-theme-gray6-base-text "
-                        />
-                        <span className="text-theme-gray6-base-text">
-                           Entrada
-                        </span>
-                     </RadioGroup.Item>
-                     <RadioGroup.Item
-                        value="outcome"
-                        className="w-52 h-14 flex gap-2 items-center justify-center bg-theme-gray3-shape-secondary
+                              >
+                                 <ArrowCircleUp
+                                    size={24}
+                                    className=" hover:text-theme-gray6-base-text "
+                                 />
+                                 <span className="text-theme-gray6-base-text">
+                                    Entrada
+                                 </span>
+                              </RadioGroup.Item>
+                              <RadioGroup.Item
+                                 value="outcome"
+                                 className="w-52 h-14 flex gap-2 items-center justify-center bg-theme-gray3-shape-secondary
                         border border-theme-gray3-shape-secondary rounded-md text-theme-red
                         focus:text-theme-gray6-base-text data-[state=checked]:bg-theme-red-dark
                         data-[state=checked]:text-theme-gray6-base-text hover:bg-theme-gray4-shape-tertiary
                         transition ease-in duration-200"
-                     >
-                        <ArrowCircleDown
-                           size={24}
-                           className="hover:text-theme-gray6-base-text"
-                        />
-                        <span className="text-theme-gray6-base-text">
-                           Saída
-                        </span>
-                     </RadioGroup.Item>
-                  </RadioGroup.Root>
+                              >
+                                 <ArrowCircleDown
+                                    size={24}
+                                    className="hover:text-theme-gray6-base-text"
+                                 />
+                                 <span className="text-theme-gray6-base-text">
+                                    Saída
+                                 </span>
+                              </RadioGroup.Item>
+                           </RadioGroup.Root>
+                        );
+                     }}
+                  />
 
                   {isSubmitting ? (
                      <button
