@@ -34,15 +34,17 @@ export function SearchForm() {
       >
          <input
             className="flex-1 rounded-md text-theme-gray6-base-text bg-theme-gray1-background 
-            p-4 border border-theme-gray1-background hover:border-theme-green-dark transition ease-in duration-200 placeholder:text-theme-gray5-placeholder"
+            p-4 border border-theme-gray1-background
+            hover:border-theme-green-dark transition ease-in duration-200 placeholder:text-theme-gray5-placeholder"
             type="text"
             placeholder="Busque uma Transação"
             {...register('query')}
          />
          {isSubmitting ? (
             <button
-               className="w-[131px] flex items-center gap-3 p-4 bg-transparent border border-theme-red rounded-md font-bold
-                  transition ease-in duration-200  text-theme-white cursor-not-allowed"
+               className="bg-transparent w-[131px] flex items-center gap-3 p-4 border border-theme-red 
+               rounded-md font-bold text-theme-white 
+               cursor-not-allowed"
                disabled={!isSubmitting}
             >
                <CircleNotch
@@ -53,7 +55,7 @@ export function SearchForm() {
             </button>
          ) : (
             <button
-               className="w-[131px] flex items-center gap-3 p-4 bg-transparent border border-theme-green rounded-md font-bold  text-theme-green hover:bg-theme-green-dark hover:border-theme-green-dark hover:text-white 
+               className="bg-transparent w-[131px] flex items-center gap-3 p-4 border border-theme-green rounded-md font-bold text-theme-green hover:bg-theme-green-dark hover:border-theme-green-dark hover:text-white 
                transition ease-in duration-200  "
                disabled={isSubmitting}
             >

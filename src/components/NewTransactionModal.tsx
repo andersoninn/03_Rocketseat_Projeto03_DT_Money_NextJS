@@ -26,8 +26,8 @@ export function NewTransactionModal() {
    } = useForm<NewTransactionFormInputs>({
       resolver: zodResolver(newTransactionModalSchema),
       defaultValues: {
-         type: 'income'
-      }
+         type: 'income',
+      },
    });
 
    async function handleCreateNewTransaction(data: NewTransactionFormInputs) {
@@ -41,14 +41,15 @@ export function NewTransactionModal() {
          <Dialog.Portal>
             <Dialog.Overlay className="bg-theme-gray1-background opacity-70 fixed inset-0 w-full h-full" />
             <Dialog.Content
-               className="w-[535px] md:w-[535 px] rounded-md px-10 py-12 bg-theme-gray2-shape-main fixed 
-               top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+               className="bg-theme-gray2-shape-main w-[535px] rounded-md px-10 py-12 fixed 
+               top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
+               md:w-[535 px]"
             >
                <Dialog.Title className="text-theme-gray7-titles text-3xl font-bold">
                   Nova Transação
                </Dialog.Title>
                <Dialog.Close>
-                  <button className="absolute top-6 right-6 cursor-pointer text-theme-gray6-base-text">
+                  <button className="text-theme-gray6-base-text absolute top-6 right-6 cursor-pointer ">
                      <X size={24} />
                   </button>
                </Dialog.Close>
@@ -59,24 +60,24 @@ export function NewTransactionModal() {
                   <input
                      type="text"
                      placeholder="Descrição"
-                     className="bg-theme-gray1-background rounded-md p-4 placeholder:text-theme-gray5-placeholder 
-                     border border-theme-gray1-background focus:border-theme-green-dark"
+                     className="bg-theme-gray1-background rounded-md p-4 border border-theme-gray1-background
+                     placeholder:text-theme-gray5-placeholder focus:border-theme-green-dark"
                      required
                      {...register('description')}
                   />
                   <input
                      type="number"
                      placeholder="Preço"
-                     className="bg-theme-gray1-background rounded-md p-4 placeholder:text-theme-gray5-placeholder 
-                     border border-theme-gray1-background focus:border-theme-green-dark"
+                     className="bg-theme-gray1-background rounded-md p-4 border border-theme-gray1-background
+                      placeholder:text-theme-gray5-placeholder focus:border-theme-green-dark"
                      required
                      {...register('price', { valueAsNumber: true })}
                   />
                   <input
                      type="text"
                      placeholder="Categoria"
-                     className="bg-theme-gray1-background rounded-md p-4 placeholder:text-theme-gray5-placeholder border
-                     border-theme-gray1-background focus:border-theme-green-dark"
+                     className="bg-theme-gray1-background rounded-md p-4 border border-theme-gray1-background
+                     placeholder:text-theme-gray5-placeholder focus:border-theme-green-dark"
                      required
                      {...register('category')}
                   />
@@ -131,8 +132,8 @@ export function NewTransactionModal() {
                   {isSubmitting ? (
                      <button
                         type="submit"
-                        className="h-14 p-5 mt-6 bg-theme-red
-                     text-theme-gray6-base-text rounded-md cursor-not-allowed flex items-center justify-center"
+                        className=" bg-theme-red h-14 p-5 mt-6 text-theme-gray6-base-text rounded-md
+                        flex items-center justify-center cursor-not-allowed"
                         disabled={isSubmitting}
                      >
                         <CircleNotch
@@ -143,8 +144,8 @@ export function NewTransactionModal() {
                   ) : (
                      <button
                         type="submit"
-                        className="h-14 p-5 mt-6 bg-theme-green hover:bg-theme-green-dark
-                     text-theme-gray6-base-text rounded-md cursor-pointer transition ease-in duration-200"
+                        className="h-14 p-5 mt-6 bg-theme-green text-theme-gray6-base-text rounded-md 
+                        hover:bg-theme-green-dark cursor-pointer transition ease-in duration-200"
                      >
                         Cadastrar
                      </button>

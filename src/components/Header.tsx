@@ -4,6 +4,8 @@ import * as Dialog from '@radix-ui/react-dialog';
 import { NewTransactionModal } from './NewTransactionModal';
 import Image from 'next/image';
 
+// Tailwing - layout / actions /responsive
+
 export function Header() {
   return (
     <div className="bg-theme-gray1-background pt-10 pb-32 w-screen">
@@ -15,7 +17,8 @@ export function Header() {
 
         <Dialog.Root>
           <Dialog.DialogTrigger asChild>
-            <button className=" bg-theme-green text-white h-12 font-bold px-5 rounded-md cursor-pointer hover:bg-theme-green-dark transition ease-in duration-200">
+            <button className=" bg-theme-green text-white h-12 font-bold px-5 rounded-md transition ease-in duration-200
+            cursor-pointer hover:bg-theme-green-dark ">
               Nova transação
             </button>
           </Dialog.DialogTrigger>
