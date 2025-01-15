@@ -26,22 +26,18 @@ Este projeto é uma **aplicação de controle financeiro** desenvolvida durante 
    Acesse o diretório do projeto:
 
 2. Instale as dependências:
-
-```bash
-npm install
+   ```bash
+   npm install
 
 3. Inicie a aplicação:
+   ```bash
+   npm run dev
+ 
+4.Abra o navegador e acesse:
+   ```bash
+   http://localhost:3000
 
-```bash
-Copiar código
-npm run dev
-Abra o navegador e acesse:
-
-```bash
-Copiar código
-http://localhost:3000
-
-2. Abra o arquivo index.html no navegador para visualizar o projeto.
+ 2. Abra o arquivo index.html no navegador para visualizar o projeto.
 
 ## 📝 Lições Aprendidas
 Melhorias na performance e otimização de aplicações React.
