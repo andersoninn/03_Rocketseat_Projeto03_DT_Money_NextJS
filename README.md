@@ -33,11 +33,9 @@ Este projeto é uma **aplicação de controle financeiro** desenvolvida durante 
    ```bash
    npm run dev
  
-4.Abra o navegador e acesse:
+4. Abra o navegador e acesse:
    ```bash
    http://localhost:3000
-
- 2. Abra o arquivo index.html no navegador para visualizar o projeto.
 
 ## 📝 Lições Aprendidas
 Melhorias na performance e otimização de aplicações React.
@@ -49,3 +47,5 @@ Uso de Styled-Components para criação de temas dinâmicos e responsivos.
 
 ✨ **Vamos nos conectar!**  
 Se você gostou do projeto ou quer trocar ideias, [me encontre no LinkedIn](https://www.linkedin.com/in/andersoninn/). 😊
+
+
